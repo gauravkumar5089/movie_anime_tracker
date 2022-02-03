@@ -8,10 +8,45 @@ const topRated =
   "/discover/movie/?certification_country=US&certification=R&sort_by=vote_average.desc&" +
   API_key;
 
-const trendingSection = document.getElementById("trending-movies");
+const trendingSwiper = document.getElementById("trending-movies");
 const topRatedSection = document.getElementById("top-rated");
 
-getmovies(popular, trendingSection);
+getmovies(popular);
+
+function getmovies(url) {
+  fetch(url)
+    .then((res) => res.json())
+    .then((data) => {
+      showMoviesInSlider(data.results);
+    });
+}
+
+function showMoviesInSlider(data) {
+  trendingSwiper.innerHTML = "";
+  data.forEach((movie) => {
+    const { title, poster_path, vote_average, overview } = movie;
+    const swiperSlide = document.createElement("div");
+    swiperSlide.classList.add("swiper-slide");
+    swiperSlide.innerHTML = `
+    <div class="movie-card">
+      <div class="movie-poster">
+        <img src="${IMG_URL + poster_path}" alt="${title}" />
+      </div>
+      <div class="movie-info">
+        <div class="movie-year">2020</div>
+        <div class="movie-name">${title}</div>
+        <div class="movie-genre">Action</div>
+        <div class="movie-rating">
+          <span class="${getcolor(vote_average)}">${vote_average}</span>
+          <i class="fas fa-star star"></i>
+        </div>
+      </div>
+    </div>
+    `;
+    trendingSwiper.appendChild(swiperSlide);
+  });
+}
+
 getmovies(topRated, topRatedSection);
 
 function getmovies(url, movie_type) {
@@ -35,67 +70,22 @@ function getcolor(vote) {
 function showmovies(data, movie_type) {
   movie_type.innerHTML = "";
   data.forEach((movie) => {
-    const { title, poster_path, vote_average,release_date,genre_ids } = movie;
+    const { title, poster_path, vote_average, overview } = movie;
     const movieCard = document.createElement("div");
-    const release_year = release_date.substr(0,4);
-    const g_id = genre_ids[0];
     movieCard.classList.add("movie-card");
+    movieCard.classList.add("scale");
     movieCard.innerHTML = `
     <div class="movie-poster">      
         <img src="${IMG_URL + poster_path}" alt="${title}">
     </div>
     <div class="movie-info">
-            <div class="movie-year">${release_year}</div>
+            <div class="movie-year">2020</div>
             <div class="movie-name">${title}</div>
-            <div class="movie-genre">${getgenre(g_id)}</div>
+            <div class="movie-genre">Action</div>
             <div class="movie-rating"><span class="${getcolor(
               vote_average
             )}">${vote_average}</span><i class="fas fa-star star"></i></div>
     </div>`;
     movie_type.appendChild(movieCard);
   });
-}
-
-function getgenre(id){
-  if(id==28){
-    return "Action"
-  }else if(id==12){
-    return "Adventure"
-  }else if(id==16){
-    return "Animation"
-  }else if(id==35){
-    return "Comedy"
-  }else if(id==80){
-    return "Crime"
-  }else if(id==99){
-    return "Documentary"
-  }else if(id==18){
-    return "Drama"
-  }else if(id==10751){
-    return "Family"
-  }else if(id==14){
-    return "Fantasy"
-  }else if(id==36){
-    return "History"
-  }else if(id==27){
-    return "Horror"
-  }else if(id==10402){
-    return "Music"
-  }else if(id==9648){
-    return "Mystery"
-  }else if(id==10749){
-    return "Romance"
-  }else if(id==878){
-    return "Science Fiction"
-  }else if(id==10770){
-    return "TV movie"
-  }else if(id==53){
-    return "Thriller"
-  }else if(id==10752){
-    return "War"
-  }else if(id==37){
-    return "Western"
-  }else{
-    return "Not a movie"
-  }
 }
