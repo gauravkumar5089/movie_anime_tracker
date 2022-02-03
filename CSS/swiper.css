@@ -1,5 +1,5 @@
 .swiper {
-  height: 450px;
+  height: 360px;
 }
 
 .swiper-wrapper {
@@ -14,4 +14,8 @@
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.swiper-navigation{
+  color: black;
 }
