@@ -147,11 +147,3 @@ function getgenre(id) {
   } else {
     return "Not a movie";
   }
-}
-
-const main = document.getElementById("main");
-
-document.getElementById("action").onmousedown = function () {
-  main.innerHTML = "";
-  main.innerHTML ="ahsisaidhfiuasd";
-};
