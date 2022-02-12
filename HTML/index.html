@@ -18,12 +18,13 @@
 
   <!-- Link Main CSS -->
   <link rel="stylesheet" href="../CSS/style.css" />
+  <link rel="stylesheet" href="../CSS/sidebar.css" />
 </head>
 
 <body>
   <!-- Header -->
   <header class="header">
-    <h1 class="name">Movie Tracker</h1>
+    <h1 class="name"><a href="index.html">Movie Tracker</a><i class="fa-solid fa-bars" id="bars"></i></h1>
     <form action="" class="search-form" id="form">
       <input type="search" class="search-box" name="search-box" id="search-box" placeholder="search movie..." />
       <i class="fas fa-search search-btn" id="search-button"></i>
@@ -32,11 +33,11 @@
   <!-- Header End -->
 
   <!-- Sub-Header -->
-  <header class="sub-header genres">
+  <header class="sub-header genres hide" id="sub-header">
     <ul>
       <li id="action">Action</li>
       <li id="adventure">Adventure</li>
-      <li id="comedy">Comedy</li>
+      <li id="comedy">Comedy</li> 
       <li id="crime">Crime</li>
       <li id="drama">Drama</li>
       <li id="family">Family</li>
@@ -45,18 +46,18 @@
       <li id="sci-fi">Sci-Fi</li>
       <li id="romance">Romance</li>
       <li id="thriller">Thriller</li>
-  </ul>
+    </ul>
   </header>
   <!-- Sub-Header End -->
 
   <!-- Main page -->
   <main id="main">
-  <!-- Trending Movies -->
-  <section class="Trending movie"> 
-    <h1 class="heading">Trending Movies</h1>
-    <div class="swiper mySwiper container">
-      <div class="swiper-wrapper" id="trending-movies">
-        <!-- <div class="swiper-slide">
+    <!-- Trending Movies -->
+    <section class="Trending movie">
+      <h1 class="heading">Trending Movies</h1>
+      <div class="swiper mySwiper container">
+        <div class="swiper-wrapper" id="trending-movies">
+          <!-- <div class="swiper-slide">
           <div class="movie-card">
             <div class="movie-poster">
               <img src="./Images/m1.jpg" alt="Movie Poster" />
@@ -72,18 +73,18 @@
             </div>
           </div>
         </div> -->
+        </div>
+        <div class="swiper-button-next swiper-navigation"></div>
+        <div class="swiper-button-prev swiper-navigation"></div>
       </div>
-      <div class="swiper-button-next swiper-navigation"></div>
-      <div class="swiper-button-prev swiper-navigation"></div>
-    </div>  
-  </section>
+    </section>
 
-  <!-- Top-rated -->
-  <section class="top-rated">
-    <h1 class="heading">Top Rated Movies</h1>
-    <div class="container" id="top-rated">
-      <!-- Card-1 -->
-      <!-- <div class="movie-card">
+    <!-- Top-rated -->
+    <section class="top-rated">
+      <h1 class="heading">Top Rated Movies</h1>
+      <div class="container" id="top-rated">
+        <!-- Card-1 -->
+        <!-- <div class="movie-card">
         <div class="movie-poster">
           <img src="./Images/m1.jpg" alt="Movie Poster" />
         </div>
@@ -97,32 +98,32 @@
           </div>
         </div>
       </div> -->
-    </div>
-  </section>
+      </div>
+    </section>
 
-  <!-- Tv-shows -->
-  <section class="tv-shows">
-    <h1 class="heading">TV Shows</h1>
-    <div class="container" id="tv-shows"></div>
-  </section>
+    <!-- Tv-shows -->
+    <section class="tv-shows">
+      <h1 class="heading">TV Shows</h1>
+      <div class="container" id="tv-shows"></div>
+    </section>
 
-  <!-- Upcoming -->
-  <section class="upcoming">
-    <h1 class="heading">Coming Soon</h1>
-    <div class="container" id="upcoming"></div>
-  </section>
+    <!-- Upcoming -->
+    <section class="upcoming">
+      <h1 class="heading">Coming Soon</h1>
+      <div class="container" id="upcoming"></div>
+    </section>
 
-  <!-- Anime -->
-  <section class="anime">
-    <h1 class="heading">Anime</h1>
-    <div class="container" id="anime"></div>
-  </section>
+    <!-- Anime -->
+    <section class="anime">
+      <h1 class="heading">Anime</h1>
+      <div class="container" id="anime"></div>
+    </section>
 
-  <!-- Web-series -->
-  <section class="webseries">
-    <h1 class="heading">Web Series</h1>
-    <div class="container" id="webseries"></div>
-  </section>
+    <!-- Web-series -->
+    <section class="webseries">
+      <h1 class="heading">Web Series</h1>
+      <div class="container" id="webseries"></div>
+    </section>
   </main>
   <!-- Main page End -->
 
@@ -145,9 +146,9 @@
     </section>
   </footer>
   <!-- Other page End -->
-    
+
   <!-- Main javascript -->
-    <script src="../JS/main.js"></script>
+  <script src="../JS/main.js"></script>
 
   <!-- Swiper Javascript -->
   <script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
