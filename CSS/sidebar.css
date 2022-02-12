@@ -93,7 +93,6 @@
   }
   .header .name #bars{
     font-size: 1.5rem;
-    
   }
   
   .header .search-form {
@@ -101,7 +100,6 @@
     grid-row: 2;
   }
   .header .search-box {
-    
     font-size: 1rem;
   }
 }
@@ -125,6 +123,9 @@
   margin-right: 1rem;
   list-style: none;
   color: white;
+}
+.hide{
+  display: block;
 }
 
 @media (max-width: 1024px) {
